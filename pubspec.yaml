@@ -1,6 +1,6 @@
 name: fluent_appbar
-description: A fluent appbar
-version: 0.0.2
+description: Fluent AppBar is a package to recreate the iOS large text title bar with a Material design
+version: 1.0.0
 homepage: https://github.com/DonsWayo/fluent_appbar
 
 environment:
