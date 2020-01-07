@@ -1,8 +1,8 @@
 name: fluent_appbar
 description: A fluent appbar
-version: 0.0.1
-author: Juan Jose Carracedo Vera
-homepage: https://github.com/DonsWayo
+version: 0.0.2
+author: Juan Jose Carracedo<djwayomix@gmail.com>
+homepage: https://github.com/DonsWayo/fluent_appbar
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
