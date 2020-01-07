@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 class FluentAppBar extends StatefulWidget {
   FluentAppBar({
     Key key,
-    @required this.titleText, 
-    @required this.scrollController, 
-    this.scrollOffset = 34, 
-    this.appBarColor = Colors.white, 
-    this.boxShadowColor = Colors.black, 
-    this.titleColor = Colors.black, 
-    this.titleFontWeight = FontWeight.bold, 
-    }) : super(key: key);
+    @required this.titleText,
+    @required this.scrollController,
+    this.scrollOffset = 34,
+    this.appBarColor = Colors.white,
+    this.boxShadowColor = Colors.black,
+    this.titleColor = Colors.black,
+    this.titleFontWeight = FontWeight.bold,
+  }) : super(key: key);
 
   final ScrollController scrollController;
   final int scrollOffset;
@@ -26,20 +26,21 @@ class FluentAppBar extends StatefulWidget {
   _FluentAppBarState createState() => _FluentAppBarState();
 }
 
-class _FluentAppBarState extends State<FluentAppBar> with TickerProviderStateMixin {
-
+class _FluentAppBarState extends State<FluentAppBar>
+    with TickerProviderStateMixin {
   double topBarOpacity = 0.0;
   Animation<double> topBarAnimation;
   AnimationController animationController;
 
   @override
   void initState() {
-    animationController = AnimationController(duration: const Duration(milliseconds: 600), vsync: this);
+    animationController = AnimationController(
+        duration: const Duration(milliseconds: 600), vsync: this);
     animationController.forward();
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+        CurvedAnimation(
+            parent: animationController,
+            curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
 
     widget.scrollController.addListener(() {
       if (widget.scrollController.offset >= widget.scrollOffset) {
@@ -50,9 +51,11 @@ class _FluentAppBarState extends State<FluentAppBar> with TickerProviderStateMix
         }
       } else if (widget.scrollController.offset <= widget.scrollOffset &&
           widget.scrollController.offset >= 0) {
-        if (topBarOpacity != widget.scrollController.offset / widget.scrollOffset) {
+        if (topBarOpacity !=
+            widget.scrollController.offset / widget.scrollOffset) {
           setState(() {
-            topBarOpacity = widget.scrollController.offset / widget.scrollOffset;
+            topBarOpacity =
+                widget.scrollController.offset / widget.scrollOffset;
           });
         }
       } else if (widget.scrollController.offset <= 0) {
@@ -97,7 +100,8 @@ class _FluentAppBarState extends State<FluentAppBar> with TickerProviderStateMix
                     ),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: widget.boxShadowColor.withOpacity(0.4 * topBarOpacity),
+                          color: widget.boxShadowColor
+                              .withOpacity(0.4 * topBarOpacity),
                           offset: const Offset(1.1, 1.1),
                           blurRadius: 10.0),
                     ],
@@ -126,8 +130,7 @@ class _FluentAppBarState extends State<FluentAppBar> with TickerProviderStateMix
                                       fontWeight: widget.titleFontWeight,
                                       fontSize: 22 + 6 - 6 * topBarOpacity,
                                       letterSpacing: 1.2,
-                                      color: widget.titleColor
-                                      ),
+                                      color: widget.titleColor),
                                 ),
                               ),
                             )
