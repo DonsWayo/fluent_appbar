@@ -8,24 +8,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage()
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: HomePage());
   }
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
   final ScrollController scrollController = ScrollController();
   final List<String> entries = <String>[
     'A',
@@ -59,9 +57,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[listDemo(), FluentAppBar(scrollController: scrollController, titleText: 'Home')]
-      ),
+      body: Stack(children: <Widget>[
+        listDemo(),
+        FluentAppBar(scrollController: scrollController, titleText: 'Home')
+      ]),
     );
   }
 

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class FluentAppBar extends StatefulWidget {
   FluentAppBar({
-    Key key,
-    @required this.titleText,
-    @required this.scrollController,
+    Key? key,
+    required this.titleText,
+    required this.scrollController,
     this.scrollOffset = 34,
     this.appBarColor = Colors.white,
     this.boxShadowColor = Colors.black,
@@ -29,8 +29,8 @@ class FluentAppBar extends StatefulWidget {
 class _FluentAppBarState extends State<FluentAppBar>
     with TickerProviderStateMixin {
   double topBarOpacity = 0.0;
-  Animation<double> topBarAnimation;
-  AnimationController animationController;
+  late Animation<double> topBarAnimation;
+  late AnimationController animationController;
 
   @override
   void initState() {
@@ -85,7 +85,7 @@ class _FluentAppBarState extends State<FluentAppBar>
       children: <Widget>[
         AnimatedBuilder(
           animation: animationController,
-          builder: (BuildContext context, Widget child) {
+          builder: (BuildContext context, Widget? child) {
             return FadeTransition(
               opacity: topBarAnimation,
               child: Transform(
